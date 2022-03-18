@@ -17,8 +17,9 @@ class Player:
     def __repr__(self):
         return f"{self.name}, {self.points}"
 
-    def getAmountPlayers():
-        playerAmount = len(Player.allPlayers)
+    @classmethod
+    def getAmountPlayers(cls):
+        playerAmount = len(cls.allPlayers)
         return(playerAmount)
 
     def getData():
@@ -32,19 +33,20 @@ class Player:
                 points=player.get('points')
             )
 
-    def calculateWinner():
-        max = Player.getAmountPlayers()
-        Player.winnerPoints.append('')
+    @classmethod
+    def calculateWinner(cls):
+        max = cls.getAmountPlayers()
+        cls.winnerPoints.append('')
         for i in range(0, max):
 
-            if Player.allPlayers[i].points > Player.winnerPoints[0]:
-                Player.winnerPoints.clear()
-                Player.winnerIndex.clear()
-                Player.winnerPoints.append(Player.allPlayers[i].points)
-                Player.winnerIndex.append(Player.allPlayers[i].index)
-            elif Player.allPlayers[i].points == Player.winnerPoints[0]:
-                Player.winnerPoints.append(Player.allPlayers[i].points)
-                Player.winnerIndex.append(Player.allPlayers[i].index)
+            if cls.allPlayers[i].points > cls.winnerPoints[0]:
+                cls.winnerPoints.clear()
+                cls.winnerIndex.clear()
+                cls.winnerPoints.append(cls.allPlayers[i].points)
+                cls.winnerIndex.append(cls.allPlayers[i].index)
+            elif cls.allPlayers[i].points == cls.winnerPoints[0]:
+                cls.winnerPoints.append(cls.allPlayers[i].points)
+                cls.winnerIndex.append(cls.allPlayers[i].index)
             else:
                 pass
 
